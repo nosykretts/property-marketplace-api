@@ -1,0 +1,275 @@
+{
+  "info": {
+    "name": "property-marketplace",
+    "description": "property-marketplace PostMan Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get all houses",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3000/api/houses",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "houses"
+          ],
+          "query": []
+        },
+        "description": null
+      },
+      "response": []
+    },
+    {
+      "name": "Create new house",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "title",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "description",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "price",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "surfaceArea",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "buildingArea",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "roomCount",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "toiletCount",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "maidRoomCount",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "floorCount",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "garageCount",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "carportCount",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "certification",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "facilities",
+              "value": "",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/houses",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "houses"
+          ],
+          "query": []
+        },
+        "description": null
+      },
+      "response": []
+    },
+    {
+      "name": "Get one house",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3000/api/houses/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "houses",
+            "1"
+          ],
+          "query": []
+        },
+        "description": null
+      },
+      "response": []
+    },
+    {
+      "name": "Update one house",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "title",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "description",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "price",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "surfaceArea",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "buildingArea",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "roomCount",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "toiletCount",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "maidRoomCount",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "floorCount",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "garageCount",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "carportCount",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "certification",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "facilities",
+              "value": "",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/houses/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "houses",
+            "1"
+          ],
+          "query": []
+        },
+        "description": null
+      },
+      "response": []
+    },
+    {
+      "name": "Delete one house",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3000/api/houses/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "houses",
+            "1"
+          ],
+          "query": []
+        },
+        "description": null
+      },
+      "response": []
+    }
+  ]
+}
