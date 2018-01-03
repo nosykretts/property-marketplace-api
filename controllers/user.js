@@ -1,4 +1,5 @@
 const UserModel = require('../models/user')
+const HouseModel = require('../models/house')
 const boom = require('boom')
 
 module.exports = {
@@ -12,6 +13,19 @@ module.exports = {
       )
       .catch(err => next(boom.boomify(err)))
   },
+  getHouses: function(req, res, next) {
+    console.log(req.userId)
+    HouseModel.find({
+      creator : req.userId
+    })
+    .then(houses =>
+      res.status(200).json({
+        message: 'Houses get success',
+        data: houses,
+      })
+    )
+    .catch(err => next(boom.boomify(err)))    
+  },  
   getUser: function(req, res, next) {
     UserModel.findById(req.params.id)
       .then(user => {

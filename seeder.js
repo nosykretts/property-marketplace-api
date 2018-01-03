@@ -57,8 +57,10 @@ function createUsers() {
 
 function randPhotos(user) {
   return Array.apply(null, Array(rb(1, 4))).map((x, i) => {
-    return `https://loremflickr.com/${rb(500, 220)}/${rb(500,
-    220)}/house,building?random=${user._id}${i}`
+   return `http://via.placeholder.com/${rb(500, 220)}x${rb(500,220)}` 
+   
+   // return `https://loremflickr.com/${rb(500, 220)}/${rb(500,
+   // 220)}/house,building?lock=${i}`
   })
 }
 function randFacilites() {

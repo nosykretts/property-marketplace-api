@@ -7,6 +7,7 @@
     "dev": "DEBUG_COLORS=false DEBUG=property-marketplace:* NODE_ENV=development nodemon ./bin/www"
   },
   "dependencies": {
+    "@google-cloud/storage": "^1.5.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "~1.18.2",
     "boom": "~7.1.1",
@@ -18,6 +19,7 @@
     "faker": "^4.1.0",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "~4.13.7",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "multer": "^1.3.0"
   }
 }

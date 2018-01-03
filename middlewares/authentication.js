@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken')
 const boom = require('boom')
 
 module.exports = function(req, res, next) {
+  console.log('kesinidddddd')
   const bearerToken = req.headers.authorization
   const token =
     bearerToken && bearerToken.split(' ')[1] ? bearerToken.split(' ')[1] : undefined

@@ -4,6 +4,7 @@ const boom = require('boom')
 module.exports = {
   getHouses: function(req, res, next) {
     HouseModel.find()
+      
       .then(houses =>
         res.status(200).json({
           message: 'Houses get success',
@@ -12,29 +13,30 @@ module.exports = {
       )
       .catch(err => next(boom.boomify(err)))
   },
+
   searchHouse: function(req, res, next) {
     // res.json(req.body.longlat)
     let lng = req.body.longlat[0]
     let lat = req.body.longlat[1]
     let newQuery = HouseModel.aggregate().near({
-      near: {type: 'point', coordinates: [lng, lat]},
-      maxDistance: req.body.distance ,
+      near: { type: 'point', coordinates: [lng, lat] },
+      maxDistance: req.body.distance,
       spherical: true,
       distanceField: 'distance',
     })
     newQuery.exec(function(err, docs) {
-      if(err){
+      if (err) {
         res.json(err)
-      }else{
+      } else {
         res.json(docs)
       }
       // console.log('ERR: ' + err)
       // console.log('Docs: ' + docs)
-
     })
   },
   getHouse: function(req, res, next) {
     HouseModel.findById(req.params.id)
+      .populate('creator')
       .then(house => {
         if (house) {
           res.status(200).json({
