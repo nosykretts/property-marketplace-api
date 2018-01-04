@@ -3,6 +3,7 @@ const boom = require('boom')
 
 module.exports = {
   getUsers: function(req, res, next) {
+    
     UserModel.find()
       .then(users =>
         res.status(200).json({

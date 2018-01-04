@@ -1,9 +1,21 @@
+
+
 const HouseModel = require('../models/house')
 const boom = require('boom')
 
 module.exports = {
   getHouses: function(req, res, next) {
-    HouseModel.find()
+    
+    let opt = {}
+    if (req.query.search){
+      let regex = new RegExp(req.query.search,'i');
+      opt = {$or : [
+        {address: regex},
+        {title: regex}
+      ]}
+    }
+
+    HouseModel.find(opt)
       .sort({createdAt: 'desc'})
       .then(houses =>
         res.status(200).json({
@@ -41,42 +53,6 @@ module.exports = {
         if (house) {
           res.status(200).json({
             message: 'House get success',
-            data: house,
-          })
-        } else {
-          res.status(404).json({
-            message: 'House not found',
-          })
-        }
-      })
-      .catch(err => next(boom.boomify(err)))
-  },
-
-  updateHouse: function(req, res, next) {
-    let b = req.body
-    HouseModel.findByIdAndUpdate(
-      req.params.id,
-      {
-        title: b.title,
-        description: b.description,
-        price: b.price,
-        surfaceArea: b.surfaceArea,
-        buildingArea: b.buildingArea,
-        roomCount: b.roomCount,
-        toiletCount: b.toiletCount,
-        maidRoomCount: b.maidRoomCount,
-        floorCount: b.floorCount,
-        garageCount: b.garageCount,
-        carportCount: b.carportCount,
-        certification: b.certification,
-        facilities: b.facilities,
-      },
-      { new: true } // return new updated document
-    )
-      .then(house => {
-        if (house) {
-          res.status(200).json({
-            message: 'House successfully updated',
             data: house,
           })
         } else {

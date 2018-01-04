@@ -8,7 +8,7 @@ function reqBodyToMongoose(req) {
     photos = b.photos
   }
   if(req.newPhotos && req.newPhotos.length > 0){
-    photos = [].concat(photos, req.newPhotos)
+    photos = [].concat(req.newPhotos, photos)
   }
   console.log(photos)
   return {

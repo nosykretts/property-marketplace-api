@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "DEBUG_COLORS=false DEBUG=property-marketplace:* NODE_ENV=development nodemon ./bin/www"
+    "dev": "DEBUG_COLORS=false DEBUG=property-marketplace:* NODE_ENV=development nodemon -e js ./bin/www"
   },
   "dependencies": {
     "@google-cloud/storage": "^1.5.2",

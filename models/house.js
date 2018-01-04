@@ -70,6 +70,14 @@ let houseSchema = new Schema(
 )
 
 
-houseSchema.index({ "loc": "2dsphere" });
+houseSchema.index({ 
+  "loc": "2dsphere",
+})
 
+// houseSchema.index({ 
+//   "title": 1,
+// })
+houseSchema.index({ 
+  "address": 1,
+})
 module.exports = mongoose.model('House', houseSchema)
