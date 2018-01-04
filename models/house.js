@@ -17,6 +17,9 @@ let houseSchema = new Schema(
     photos : {
       type: [String]
     },
+    address : {
+      type: String
+    },
     loc: {
       type: { type: String },
       coordinates: []

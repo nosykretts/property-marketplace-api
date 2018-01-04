@@ -89,9 +89,10 @@ function createHouses(users) {
         floorCount: rb(1, 3),
         garageCount: rb(0, 2),
         carportCount: rb(0, 3),
-        certification: ['CERT-A', 'CERT-B', 'CERT-D'][rb(0, 2)],
+        certification: ['CERT-A', 'CERT-B', 'CERT-C'][rb(0, 2)],
         photos: randPhotos(user),
         facilities: randFacilites(),
+        address: 'Jl. Random Banget',
         loc : {
           type : 'Point',
           coordinates : [gri(106,108,6), gri(-6,-7, 6)] //long,lat(2dsphere)

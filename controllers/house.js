@@ -4,7 +4,7 @@ const boom = require('boom')
 module.exports = {
   getHouses: function(req, res, next) {
     HouseModel.find()
-      
+      .sort({createdAt: 'desc'})
       .then(houses =>
         res.status(200).json({
           message: 'Houses get success',
@@ -87,20 +87,5 @@ module.exports = {
       })
       .catch(err => next(boom.boomify(err)))
   },
-  deleteHouse: function(req, res, next) {
-    HouseModel.findByIdAndRemove(req.params.id)
-      .then(house => {
-        if (house) {
-          res.status(200).json({
-            message: 'House successfully deleted',
-            data: house,
-          })
-        } else {
-          res.status(404).json({
-            message: 'House not found',
-          })
-        }
-      })
-      .catch(err => next(boom.boomify(err)))
-  },
+
 }

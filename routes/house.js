@@ -11,12 +11,10 @@ const {
 } = require('../controllers/house')
 
 router.get('/', getHouses)
-
 router.post('/search', searchHouse)
-
 router.get('/:id', getHouse)
-router.put('/:id', updateHouse)
-router.delete('/:id', deleteHouse)
+// router.put('/:id', updateHouse)
+// router.delete('/:id', deleteHouse)
 
 
 
