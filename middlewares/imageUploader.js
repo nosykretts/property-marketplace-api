@@ -18,6 +18,7 @@ function getExt(filename) {
 function uploadOnePromise(multerFileObj) {
   const bucket = storage.bucket(bucketName)
   const newFilename = Date.now() + getExt(multerFileObj.originalname)
+
   const newFile = bucket.file('userupload/' + newFilename)
 
   return new Promise((resolve, reject) => {
