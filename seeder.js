@@ -4,7 +4,7 @@ const faker = require('faker/locale/id_ID')
 
 let UserModel = require('./models/user')
 let HouseModel = require('./models/house')
-
+let  counter = 0;
 mongoose.connection.openUri(process.env.MONGODB_CONN_STRING, {
   useMongoClient: true,
 })
@@ -43,7 +43,7 @@ function gri(from, to, fixed) {
 
 function createUsers() {
   let users = exactUser
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 5; i++) {
     users.push(
       UserModel.create({
         name: faker.name.findName(),
@@ -57,10 +57,9 @@ function createUsers() {
 
 function randPhotos(user) {
   return Array.apply(null, Array(rb(1, 4))).map((x, i) => {
-   return `http://via.placeholder.com/${rb(500, 220)}x${rb(500,220)}` 
-   
-   // return `https://loremflickr.com/${rb(500, 220)}/${rb(500,
-   // 220)}/house,building?lock=${i}`
+  //  return `http://via.placeholder.com/${rb(500, 220)}x${rb(500,220)}` 
+   counter++
+   return `http://loremflickr.com/${rb(300, 200)}/${rb(300,200)}/house?lock=${counter}`
   })
 }
 function randFacilites() {
@@ -74,7 +73,7 @@ function randFacilites() {
 function createHouses(users) {
   let houses = []
   for (const user of users) {
-    for (let i = 0; i < rb(1, 10); i++) {
+    for (let i = 0; i < rb(1, 3); i++) {
       let buildingArea = rb(80, 300)
       let prom = HouseModel.create({
         creator: user._id,
