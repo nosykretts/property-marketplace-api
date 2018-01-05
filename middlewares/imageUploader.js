@@ -12,9 +12,12 @@ const getPublicUrl = filename => {
   return `https://storage.googleapis.com/${bucketName}/userupload/${filename}`
 }
 
+function getExt(filename) {
+  return filename.slice((filename.lastIndexOf(".") - 1 >>> 0) + 2);
+}
 function uploadOnePromise(multerFileObj) {
   const bucket = storage.bucket(bucketName)
-  const newFilename = Date.now() + multerFileObj.originalname
+  const newFilename = Date.now() + getExt(multerFileObj.originalname)
   const newFile = bucket.file('userupload/' + newFilename)
 
   return new Promise((resolve, reject) => {
