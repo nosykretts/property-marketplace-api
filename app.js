@@ -8,9 +8,13 @@ const bodyParser = require('body-parser')
 const app = express()
 require('dotenv').config()
 
-mongoose.connection.openUri(process.env.MONGODB_CONN_STRING, {
-  useMongoClient: true,
+mongoose.connect(process.env.MONGODB_CONN_STRING, {
+  keepAlive: true,
+  useNewUrlParser: true,
+  poolSize: 1,
+  reconnectTries: 1,
 })
+
 mongoose.Promise = global.Promise
 mongoose.connection
   .once('open', () => {
@@ -20,7 +24,7 @@ mongoose.connection
     console.log('connection error', error)
   })
 
-app.use(morgan('dev'))
+app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(
