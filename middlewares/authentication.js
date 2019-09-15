@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const boom = require('boom')
+const boom = require('@hapi/boom')
 
 module.exports = function(req, res, next) {
   const bearerToken = req.headers.authorization

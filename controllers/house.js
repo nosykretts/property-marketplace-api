@@ -1,7 +1,7 @@
 
 
 const HouseModel = require('../models/house')
-const boom = require('boom')
+const boom = require('@hapi/boom')
 
 module.exports = {
   getHouses: function(req, res, next) {

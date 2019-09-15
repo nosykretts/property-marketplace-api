@@ -1,5 +1,5 @@
 const HouseModel = require('../models/house')
-const boom = require('boom')
+const boom = require('@hapi/boom')
 
 function reqBodyToMongoose(req) {
   let b = req.body

@@ -3,16 +3,17 @@ const mongoose = require('mongoose')
 const path = require('path')
 const morgan = require('morgan')
 const cors = require('cors')
-const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const app = express()
 require('dotenv').config()
 
 mongoose.connect(process.env.MONGODB_CONN_STRING, {
+  useUnifiedTopology: true,
   keepAlive: true,
   useNewUrlParser: true,
   poolSize: 1,
   reconnectTries: 1,
+  useCreateIndex: true
 })
 
 mongoose.Promise = global.Promise
